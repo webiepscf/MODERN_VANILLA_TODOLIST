@@ -3,6 +3,7 @@
 // - elt, todos qui doit contenir des objets de type Todo
 import DB from "../../DB";
 import Todo from "../todo/Todo";
+import getTemplate from './template.js';
 
 export default class  {
     constructor(data){
@@ -19,7 +20,7 @@ export default class  {
     }
 
     render () {
-        console.table(this.todos);
+        this.elt.innerHTML = getTemplate(this);
     }
 
 }
