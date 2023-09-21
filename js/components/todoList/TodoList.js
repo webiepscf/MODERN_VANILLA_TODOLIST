@@ -21,6 +21,12 @@ export default class  {
 
     render () {
         this.elt.innerHTML = getTemplate(this);
+        this.renderNotCompletedTodosCount();
+    }
+
+    renderNotCompletedTodosCount () {
+        this.elt.querySelector('.todo-count strong').innerText = 
+            this.todos.filter((todo) => !todo.completed).length;
     }
 
 }
