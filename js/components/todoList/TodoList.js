@@ -22,7 +22,7 @@ export default class  {
 
     render () {
         this.elt.innerHTML = getTemplate(this);
-        this.activateElements();
+        this.newTodoInput = this.elt.querySelector('.new-todo');
         this.renderNotCompletedTodosCount();
     }
 
@@ -31,20 +31,11 @@ export default class  {
             this.todos.filter((todo) => !todo.completed).length;
     }
 
-    activateElements() {
-        this.newTodoInput = this.elt.querySelector('.new-todo');
-        this.newTodoInput.addEventListener('keyup',  (e) => {
-            if (e.key === 'Enter' && this.newTodoInput.value !== ''){
-                this.add();
-            } 
-        });
-    }
-
-    add () {
+    add (data) {
         // 1. Ajout de la todo dans le this.todos
             const todo = {
-                id: new Date(),
-                content: this.newTodoInput.value,
+                id: Date.now(),
+                content: data,
                 completed: false
                 };
             const newTodo = new Todo(todo);
@@ -68,6 +59,10 @@ export default class  {
     
         // Je recompte les not completed
             this.renderNotCompletedTodosCount();
+        }
+
+        test(){
+            alert('coucou');
         }
 
 }

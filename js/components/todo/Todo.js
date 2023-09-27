@@ -10,4 +10,9 @@ export default class {
     render () {
         return getTemplate(this);
     }
+
+    test() {
+        todoList.test();
+    }
+
 }

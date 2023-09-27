@@ -8,6 +8,7 @@ export default function(data) {
               class="new-todo"
               placeholder="What needs to be done?"
               autofocus
+              onkeyup="if(event.key=='Enter'){window.todoList.add(this.value)}"
             />
           </header>
           <section class="main">
